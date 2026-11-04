@@ -30,9 +30,9 @@
     <rect x="720.5" y="150.5" width="479" height="339" rx="28" fill="none" stroke="#3B2F6B"/>
     <circle cx="756" cy="184" r="7" fill="#FF5F57"/><circle cx="778" cy="184" r="7" fill="#FEBC2E"/><circle cx="800" cy="184" r="7" fill="#28C840"/>
     <text x="752" y="264" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" font-weight="600" fill="#A3E635">$ run resource-optimizer</text>
-    <text x="752" y="304" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" font-weight="400" fill="#D8D2F5">free before    4%</text>
-    <text x="752" y="344" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" font-weight="400" fill="#D8D2F5">free after    25%</text>
-    <text x="752" y="384" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" font-weight="500" fill="#4ADE80">✓ 21% of disk freed</text>
+    <text x="752" y="304" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" font-weight="400" fill="#D8D2F5">free before<tspan x="1000" text-anchor="end">4%</tspan></text>
+    <text x="752" y="344" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" font-weight="400" fill="#D8D2F5">free after<tspan x="1000" text-anchor="end">25%</tspan></text>
+    <text x="752" y="384" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" font-weight="500" fill="#4ADE80">✓ 103.8 GB freed (21%)</text>
     <text x="752" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" font-weight="500" fill="#4ADE80">✓ 100% approved by you</text>
   </g>
   <text x="1200" y="540" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" fill="#D8D2F5">by <tspan font-weight="700" fill="#FFFFFF">Mauricio Alonso Moya Tapia</tspan> · @maumoya</text>

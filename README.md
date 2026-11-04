@@ -15,9 +15,15 @@
 
 # Resource Optimizer
 
-Frees disk space and eases RAM and CPU load on macOS and Linux: measures read-only, ranks what fills the disk with a plain need-it answer, gives you one command per group to run, proves the result before/after. Never deletes on its own.
+**Disk full? Get space back without losing anything you need.**
 
-<!-- Put a picture or a ≤10 s GIF here: one input → one result. -->
+A Claude Code skill for macOS and Linux:
+
+- **Measures first**, read-only, and ranks what fills the disk with a plain "need it?" answer.
+- **You approve every delete.** It hands you one command per group to run yourself; it never deletes on its own.
+- **Proves the result** with a before/after table. It also eases RAM and CPU load.
+
+<p align="center"><img src="assets/disk-cleanup.svg" alt="Animation: free space on a 494 GB Mac mini goes from 19.6 GB (4%) to 123.3 GB (25%) as the skill clears caches, temp files, unused models, old simulators, unused apps and Trash: 103.8 GB freed, 21% of the disk, every delete approved by the user" width="760"></p>
 
 ## Install
 
@@ -70,10 +76,12 @@ Small sample, one synthetic folder, an LLM judge: a direction, not a guarantee. 
 
 ### Real machine
 
-<p align="center"><img src="assets/disk-cleanup.svg" alt="Animation: free space on a 494 GB Mac mini goes from 19.6 GB (4%) to 123.3 GB (25%) as the skill clears caches, temp files, unused models, old simulators, unused apps and Trash: 103.8 GB freed, 21% of the disk, every delete approved by the user" width="760"></p>
+<p align="center"><img src="assets/real-machine-card.svg" alt="21% of the disk freed on a real Mac mini: free space went from 4% to 25%, 103.8 of 494 GB, every delete approved by the user" width="760"></p>
 
-First real run, a 16 GB Mac mini with a 494 GB disk (2026-11-03). Measured with `scripts/measure.sh` and `df -h /`;
-the user ran every command.
+A 16 GB Mac mini with a 494 GB disk (2026-11-03). macOS Storage before: 474.82 GB used, 19.6 GB free (4%). After:
+371.06 GB used, 123.3 GB free (25%). **103.8 GB freed, 21% of the disk**, counting the whole run: learning what to
+clean, building the skill, and the automated checks. Steps in between were measured with `scripts/measure.sh` and
+`df -h /` (GiB, 1 GiB = 1.074 GB); the user ran every command.
 
 | Step | What was cleared | Free space |
 |---|---|---|
@@ -87,8 +95,6 @@ the user ran every command.
 | 5 unused apps and 2 duplicate apps to the Trash, Trash emptied by the user | | 115 GiB |
 | After (macOS Storage: 371.06 of 494.38 GB used) | | 123.3 GB |
 
-**21% of the disk freed** (103.8 of 494.4 GB; free space went from 4% to 25%), from the macOS Storage numbers before and
-after, counting the whole run: learning what to clean, building the skill, and the automated checks. GiB rows are `df -h /`.
 **100% of deletes approved by the user:** every item was recommended by the skill in a ranked table, the user
 said yes, and every permanent step was the user's own command or password in a macOS dialog. The agent deleted 0 files on its own.
 

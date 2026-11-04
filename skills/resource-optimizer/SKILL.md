@@ -1,6 +1,6 @@
 ---
 name: resource-optimizer
-description: Frees disk space and eases RAM and CPU load on macOS or Linux without losing anything you need. Measures first (read-only), ranks what is taking space with a plain "need it?" answer, hands you one command per group to run yourself, and proves the result with a before/after table. Never deletes on its own. Use when the user says "/resource-optimizer", "free up disk space", "my disk is full", "clean my Mac", "clean my computer", "what is using my storage", "why is my computer slow", "Documents is too big", "clear caches", "which AI models can I remove", or "limpiá mi compu".
+description: Frees disk space on macOS or Linux without losing anything the user needs, and eases RAM and CPU load. Measures read-only, ranks what takes space with a plain "need it?" answer, hands the user one command per group to run, and proves the result with a before/after table. Never deletes on its own. Use when the user says "/resource-optimizer", "free up disk space", "my disk is full", "clean my Mac", "clean my computer", "what is using my storage", "why is my computer slow", "Documents is too big", "clear caches", "which AI models can I remove", or "limpiá mi compu".
 license: MIT
 ---
 

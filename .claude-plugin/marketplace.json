@@ -1,14 +1,14 @@
 {
   "$schema": "https://www.schemastore.org/claude-code-marketplace.json",
   "name": "resource-optimizer",
-  "description": "Frees disk space and eases RAM and CPU load on macOS and Linux: measures read-only, ranks what fills the disk with a plain need-it answer, gives you one command per group to run, proves the result before/after. Never deletes on its own.",
+  "description": "Frees disk space on macOS and Linux without losing anything you need. Measures read-only, ranks what fills the disk with a plain \"need it?\" answer, and hands you one command per group to run yourself. Never deletes on its own. Also eases RAM and CPU load. Freed 21% of a real Mac mini disk (103.8 GB).",
   "owner": {
     "name": "Mauricio Alonso Moya Tapia"
   },
   "plugins": [
     {
       "name": "resource-optimizer",
-      "description": "Frees disk space and eases RAM and CPU load on macOS and Linux: measures read-only, ranks what fills the disk with a plain need-it answer, gives you one command per group to run, proves the result before/after. Never deletes on its own.",
+      "description": "Frees disk space on macOS and Linux without losing anything you need. Measures read-only, ranks what fills the disk with a plain \"need it?\" answer, and hands you one command per group to run yourself. Never deletes on its own. Also eases RAM and CPU load. Freed 21% of a real Mac mini disk (103.8 GB).",
       "source": "./",
       "category": "productivity",
       "keywords": ["claude-code", "claude-skill", "agent-skills"]
