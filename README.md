@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="assets/header.png" alt="resource-optimizer, a free open source Claude Code skill that frees disk space safely: measures first, you approve each step, freed 19% of a real Mac mini disk" width="100%">
+  <img src="assets/header.png" alt="resource-optimizer, a free open source Claude Code skill that frees disk space safely: measures first, you approve each step, freed 21% of a real Mac mini disk" width="100%">
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Claude%20Code-skill%20%2B%20plugin-7c5cfc" alt="Claude Code skill and plugin">
-  <a href="#results-measured-2026-11-03"><img src="https://img.shields.io/badge/disk%20freed-19%25-2da44e" alt="Disk freed: 19 percent on a real Mac mini"></a>
+  <a href="#results-measured-2026-11-03"><img src="https://img.shields.io/badge/disk%20freed-21%25-2da44e" alt="Disk freed: 21 percent on a real Mac mini"></a>
   <a href="#results-measured-2026-11-03"><img src="https://img.shields.io/badge/deletes%20approved%20by%20you-100%25-2da44e" alt="Deletes approved by the user: 100 percent"></a>
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT license">
   <a href="https://opensource.org/license/mit"><img src="https://img.shields.io/badge/Open%20Source-OSI%20approved%20license-3DA639?logo=opensourceinitiative&logoColor=white" alt="Open Source: OSI-approved MIT license"></a>
@@ -70,22 +70,25 @@ Small sample, one synthetic folder, an LLM judge: a direction, not a guarantee. 
 
 ### Real machine
 
-<p align="center"><img src="assets/real-machine-card.svg" alt="19% of the disk freed on a real Mac mini: free space went from 6% to 25%, 86 of 460 GiB, every delete approved by the user" width="760"></p>
+<p align="center"><img src="assets/disk-cleanup.svg" alt="Animation: free space on a 494 GB Mac mini goes from 19.6 GB (4%) to 123.3 GB (25%) as the skill clears caches, temp files, unused models, old simulators, unused apps and Trash: 103.8 GB freed, 21% of the disk, every delete approved by the user" width="760"></p>
 
 First real run, a 16 GB Mac mini with a 494 GB disk (2026-11-03). Measured with `scripts/measure.sh` and `df -h /`;
 the user ran every command.
 
 | Step | What was cleared | Free space |
 |---|---|---|
-| Start | (macOS Storage showed 474.82 GB used) | 29 GiB |
+| Before (macOS Storage: 474.82 of 494.38 GB used) | | 19.6 GB |
+| First `df -h /` measurement | | 29 GiB |
 | Group A | npm, uv, pip and Homebrew caches; Xcode build output to the Trash | 36 GiB |
 | Group B | 4 unused local AI models, iOS simulators, old app leftovers to the Trash | 57 GiB |
 | Trash emptied by the user | | 84 GiB |
 | Orphan MLX models, an unused node_modules | | 92 GiB |
 | Old iOS simulator runtimes (27.0, 27.1; 27.2 kept for builds) | 14.8 GB | 109 GiB |
 | 5 unused apps and 2 duplicate apps to the Trash, Trash emptied by the user | | 115 GiB |
+| After (macOS Storage: 371.06 of 494.38 GB used) | | 123.3 GB |
 
-**19% of the disk freed** (86 of 460 GiB; free space went from 6% to 25%), measured with `df -h /`.
+**21% of the disk freed** (103.8 of 494.4 GB; free space went from 4% to 25%), from the macOS Storage numbers before and
+after, counting the whole run: learning what to clean, building the skill, and the automated checks. GiB rows are `df -h /`.
 **100% of deletes approved by the user:** every item was recommended by the skill in a ranked table, the user
 said yes, and every permanent step was the user's own command or password in a macOS dialog. The agent deleted 0 files on its own.
 

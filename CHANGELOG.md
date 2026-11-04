@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- README: latest real-machine numbers (21% of the disk freed, 103.8 GB, free space 4% → 25%) and an animated
+  before/after card; header and cards updated to match.
+
 ## 0.3.0
 
 - GitHub Action `maumoya/resource-optimizer@v0.3.0`: read-only disk, RAM and load snapshot of the runner, with a

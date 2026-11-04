@@ -14,7 +14,7 @@
     <text x="116" y="141" font-size="30" font-weight="800" fill="#FFFFFF" text-anchor="middle">RO</text>
     <text x="172" y="143" font-size="40" font-weight="700" fill="#FFFFFF"><tspan fill="#A3E635" font-weight="500">maumoya/</tspan>resource-optimizer</text>
     <text x="80" y="262" font-size="66" font-weight="800" fill="#FFFFFF">Disk full?</text>
-    <text x="80" y="340" font-size="66" font-weight="800" fill="#A3E635">Free 19% of it back.</text>
+    <text x="80" y="340" font-size="66" font-weight="800" fill="#A3E635">Free 21% of it back.</text>
     <text x="80" y="404" font-size="26" fill="#D8D2F5">Measures first, you approve each step.</text>
     <text x="80" y="440" font-size="26" fill="#D8D2F5">The agent never deletes on its own.</text>
     <rect x="80" y="490" width="166" height="40" rx="20" fill="#22C55E"/><text x="163" y="517" font-size="20" font-weight="600" fill="#1B1240" text-anchor="middle">macOS + Linux</text>
@@ -29,10 +29,10 @@
     <g filter="url(#sh)"><rect x="720" y="150" width="480" height="340" rx="28" fill="#120B2E"/></g>
     <rect x="720.5" y="150.5" width="479" height="339" rx="28" fill="none" stroke="#3B2F6B"/>
     <circle cx="756" cy="184" r="7" fill="#FF5F57"/><circle cx="778" cy="184" r="7" fill="#FEBC2E"/><circle cx="800" cy="184" r="7" fill="#28C840"/>
-    <text x="752" y="264" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" font-weight="600" fill="#A3E635">$ df -h /</text>
-    <text x="752" y="304" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" font-weight="400" fill="#D8D2F5">free before    6%</text>
+    <text x="752" y="264" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" font-weight="600" fill="#A3E635">$ run resource-optimizer</text>
+    <text x="752" y="304" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" font-weight="400" fill="#D8D2F5">free before    4%</text>
     <text x="752" y="344" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" font-weight="400" fill="#D8D2F5">free after    25%</text>
-    <text x="752" y="384" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" font-weight="500" fill="#4ADE80">✓ 19% of disk freed</text>
+    <text x="752" y="384" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" font-weight="500" fill="#4ADE80">✓ 21% of disk freed</text>
     <text x="752" y="424" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22" font-weight="500" fill="#4ADE80">✓ 100% approved by you</text>
   </g>
   <text x="1200" y="540" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" fill="#D8D2F5">by <tspan font-weight="700" fill="#FFFFFF">Mauricio Alonso Moya Tapia</tspan> · @maumoya</text>

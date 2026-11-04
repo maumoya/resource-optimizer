@@ -46,7 +46,8 @@ Sizes vary. Measure each with `du -sh PATH`, one explicit path at a time.
 16 GB Mac mini, 29 → 92 GiB free in four user-run rounds: emptying the Trash (+23 GiB, nothing is freed until then),
 unused Ollama models (checked against code first), iOS simulators, models whose app was gone, and `node_modules` in
 pushed repos. Package caches gave about 7 GiB. A later round took it to 115 GiB: old simulator runtimes (14.8 GB) and
-unused or duplicate apps, then the Trash emptied again. Start with the Trash size, the model folders and simulator runtimes.
+unused or duplicate apps, then the Trash emptied again. Whole run by macOS Storage: 19.6 → 123.3 GB free (103.8 GB,
+21% of the disk). Start with the Trash size, the model folders and simulator runtimes.
 
 ## Unused apps
 
