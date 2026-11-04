@@ -22,6 +22,9 @@ jobs:
       - name: Lint
         run: bash scripts/lint_skill.sh .
 
+      - name: Published numbers in sync
+        run: python3 -I launch/sync.py check .
+
   action:
     name: Self-test the action
     runs-on: ubuntu-latest

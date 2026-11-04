@@ -1,6 +1,6 @@
 # Resource Optimizer
 
-> Frees disk space on macOS and Linux without losing anything you need. Measures read-only, ranks what fills the disk with a plain "need it?" answer, and hands you one command per group to run yourself. Never deletes on its own. Also eases RAM and CPU load. Freed 21% of a real Mac mini disk (103.8 GB).
+> Frees disk space on macOS and Linux without losing anything you need. Measures read-only, ranks what fills the disk with a plain "need it?" answer, and hands you one command per group to run yourself. Never deletes on its own. Also eases RAM and CPU load. Freed <!--fact:freed_pct-->21%<!--/fact--> of a real Mac mini disk (<!--fact:freed_gb-->103.8 GB<!--/fact-->).
 
 ## Install
 

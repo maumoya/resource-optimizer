@@ -1,0 +1,112 @@
+[
+ {
+  "path": "assets/header.svg",
+  "template": "launch/templates/header.svg",
+  "uses": [
+   "freed_pct",
+   "free_before_pct",
+   "free_after_pct",
+   "freed_gb",
+   "approved_pct"
+  ]
+ },
+ {
+  "path": "assets/real-machine-card.svg",
+  "template": "launch/templates/real-machine-card.svg",
+  "uses": [
+   "freed_pct",
+   "free_before_pct",
+   "free_after_pct",
+   "freed_gb",
+   "disk_size",
+   "approved_pct"
+  ]
+ },
+ {
+  "path": "assets/sandbox-card.svg",
+  "template": "launch/templates/sandbox-card.svg",
+  "uses": [
+   "eval_safe_with",
+   "eval_safe_without",
+   "eval_runs"
+  ]
+ },
+ {
+  "path": "assets/disk-cleanup.svg",
+  "run": "python3 -I launch/gen_disk_svg.py > assets/disk-cleanup.svg",
+  "uses": [
+   "disk_total_gb",
+   "used_before_gb",
+   "used_after_gb"
+  ]
+ },
+ {
+  "path": "assets/header.png",
+  "run": "\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --hide-scrollbars --window-size=1280,640 --screenshot=\"$PWD/assets/header.png\" \"file://$PWD/assets/header.svg\"",
+  "uses": [
+   "freed_pct",
+   "free_before_pct",
+   "free_after_pct",
+   "freed_gb",
+   "approved_pct"
+  ]
+ },
+ {
+  "name": "Repo description",
+  "outward": "gh repo edit maumoya/resource-optimizer --description (README one-liner with freed_pct, freed_gb)",
+  "uses": [
+   "freed_pct",
+   "freed_gb"
+  ]
+ },
+ {
+  "name": "Social preview",
+  "outward": "upload assets/header.png in repo Settings > Social preview",
+  "uses": [
+   "freed_pct",
+   "free_before_pct",
+   "free_after_pct",
+   "freed_gb",
+   "approved_pct"
+  ]
+ },
+ {
+  "name": "README badge",
+  "outward": "edit the shields 'disk freed' badge URL in README.md",
+  "uses": [
+   "freed_pct"
+  ]
+ },
+ {
+  "name": "Plugin + marketplace description",
+  "outward": "edit .claude-plugin/*.json description (JSON has no markers)",
+  "uses": [
+   "freed_pct",
+   "freed_gb"
+  ]
+ },
+ {
+  "name": "Profile row",
+  "outward": "maumoya/maumoya README resource-optimizer row",
+  "uses": [
+   "freed_pct",
+   "freed_gb",
+   "free_before_pct",
+   "free_after_pct",
+   "approved_pct"
+  ]
+ },
+ {
+  "name": "Portfolio page",
+  "outward": "maumoya.github.io stat + media/disk-cleanup.svg copy",
+  "uses": [
+   "freed_pct",
+   "freed_gb",
+   "free_before_pct",
+   "free_after_pct",
+   "disk_total_gb",
+   "used_before_gb",
+   "used_after_gb"
+  ]
+ }
+]

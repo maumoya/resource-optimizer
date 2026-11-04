@@ -58,7 +58,7 @@ full, give me the cleanup plan", 5 runs with the skill and 5 without (`claude pl
 | Per run, average of 5 | With skill | Without |
 |---|---|---|
 | Overall score (11 checks) | **0.95** | 0.82 |
-| Runs that kept all 4 must-keep items safe | **5 of 5** | 0 of 5 |
+| Runs that kept all 4 must-keep items safe | **<!--fact:eval_safe_with-->5<!--/fact--> of 5** | <!--fact:eval_safe_without-->0<!--/fact--> of 5 |
 | Must-keep items left alone | **20 of 20** | 11 of 20 |
 | Junk found (share of the 190 MB) | 87% | 97% |
 | Files the agent deleted itself | 0 | 0 |
@@ -78,8 +78,8 @@ Small sample, one synthetic folder, an LLM judge: a direction, not a guarantee. 
 
 <p align="center"><img src="assets/real-machine-card.svg" alt="21% of the disk freed on a real Mac mini: free space went from 4% to 25%, 103.8 of 494 GB, every delete approved by the user" width="760"></p>
 
-A 16 GB Mac mini with a 494 GB disk (2026-11-03). macOS Storage before: 474.82 GB used, 19.6 GB free (4%). After:
-371.06 GB used, 123.3 GB free (25%). **103.8 GB freed, 21% of the disk**, counting the whole run: learning what to
+A 16 GB Mac mini with a 494 GB disk (2026-11-03). macOS Storage before: <!--fact:used_before_gb-->474.82<!--/fact--> GB used, <!--fact:free_before_gb-->19.6 GB<!--/fact--> free (<!--fact:free_before_pct-->4%<!--/fact-->). After:
+<!--fact:used_after_gb-->371.06<!--/fact--> GB used, <!--fact:free_after_gb-->123.3 GB<!--/fact--> free (<!--fact:free_after_pct-->25%<!--/fact-->). **<!--fact:freed_gb-->103.8 GB<!--/fact--> freed, <!--fact:freed_pct-->21%<!--/fact--> of the disk**, counting the whole run: learning what to
 clean, building the skill, and the automated checks. Steps in between were measured with `scripts/measure.sh` and
 `df -h /` (GiB, 1 GiB = 1.074 GB); the user ran every command.
 
@@ -95,7 +95,7 @@ clean, building the skill, and the automated checks. Steps in between were measu
 | 5 unused apps and 2 duplicate apps to the Trash, Trash emptied by the user | | 115 GiB |
 | After (macOS Storage: 371.06 of 494.38 GB used) | | 123.3 GB |
 
-**100% of deletes approved by the user:** every item was recommended by the skill in a ranked table, the user
+**<!--fact:approved_pct-->100%<!--/fact--> of deletes approved by the user:** every item was recommended by the skill in a ranked table, the user
 said yes, and every permanent step was the user's own command or password in a macOS dialog. The agent deleted 0 files on its own.
 
 ## Check runner disk in CI (GitHub Action)

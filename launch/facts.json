@@ -1,0 +1,72 @@
+{
+ "used_before_gb": {
+  "value": "474.82",
+  "source": "macOS Storage screenshots, Mac mini 494 GB, README Real machine",
+  "date": "2026-11-03"
+ },
+ "used_after_gb": {
+  "value": "371.06",
+  "source": "macOS Storage screenshots, Mac mini 494 GB, README Real machine",
+  "date": "2026-11-03"
+ },
+ "disk_total_gb": {
+  "value": "494.38",
+  "source": "macOS Storage screenshots, Mac mini 494 GB, README Real machine",
+  "date": "2026-11-03"
+ },
+ "free_before_gb": {
+  "value": "19.6 GB",
+  "source": "macOS Storage screenshots, Mac mini 494 GB, README Real machine",
+  "date": "2026-11-03"
+ },
+ "free_after_gb": {
+  "value": "123.3 GB",
+  "source": "macOS Storage screenshots, Mac mini 494 GB, README Real machine",
+  "date": "2026-11-03"
+ },
+ "disk_size": {
+  "value": "494 GB",
+  "source": "macOS Storage screenshots, Mac mini 494 GB, README Real machine",
+  "date": "2026-11-03"
+ },
+ "free_before_pct": {
+  "value": "4%",
+  "source": "macOS Storage screenshots, Mac mini 494 GB, README Real machine",
+  "date": "2026-11-03"
+ },
+ "free_after_pct": {
+  "value": "25%",
+  "source": "macOS Storage screenshots, Mac mini 494 GB, README Real machine",
+  "date": "2026-11-03"
+ },
+ "freed_gb": {
+  "value": "103.8 GB",
+  "source": "macOS Storage screenshots, Mac mini 494 GB, README Real machine",
+  "date": "2026-11-03"
+ },
+ "freed_pct": {
+  "value": "21%",
+  "source": "macOS Storage screenshots, Mac mini 494 GB, README Real machine",
+  "date": "2026-11-03"
+ },
+ "approved_pct": {
+  "value": "100%",
+  "source": "README Real machine: every delete run by the user",
+  "date": "2026-11-03"
+ },
+ "eval_safe_with": {
+  "value": "5",
+  "source": "evals/sandbox-full-disk, README Test environment table",
+  "date": "2026-11-03"
+ },
+ "eval_safe_without": {
+  "value": "0",
+  "source": "evals/sandbox-full-disk, README Test environment table",
+  "date": "2026-11-03"
+ },
+ "eval_runs": {
+  "value": "5",
+  "source": "evals/sandbox-full-disk, README Test environment table",
+  "date": "2026-11-03"
+ }
+}

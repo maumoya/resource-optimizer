@@ -1,0 +1,29 @@
+{
+ "assets": {
+  "Plugin + marketplace description": "968f1a8ce1a9",
+  "Portfolio page": "dcc507ca83aa",
+  "Profile row": "3c6871a58d0f",
+  "README badge": "2f323b7f7496",
+  "assets/disk-cleanup.svg": "62d76cc130c3",
+  "assets/header.png": "3c6871a58d0f",
+  "assets/header.svg": "3c6871a58d0f",
+  "assets/real-machine-card.svg": "b187ae2b2bc1",
+  "assets/sandbox-card.svg": "c9c841447bd3"
+ },
+ "facts": {
+  "approved_pct": "100%",
+  "disk_size": "494 GB",
+  "disk_total_gb": "494.38",
+  "eval_runs": "5",
+  "eval_safe_with": "5",
+  "eval_safe_without": "0",
+  "free_after_gb": "123.3 GB",
+  "free_after_pct": "25%",
+  "free_before_gb": "19.6 GB",
+  "free_before_pct": "4%",
+  "freed_gb": "103.8 GB",
+  "freed_pct": "21%",
+  "used_after_gb": "371.06",
+  "used_before_gb": "474.82"
+ }
+}
