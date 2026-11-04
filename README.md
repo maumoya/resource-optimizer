@@ -70,6 +70,8 @@ Small sample, one synthetic folder, an LLM judge: a direction, not a guarantee. 
 
 ### Real machine
 
+<p align="center"><img src="assets/real-machine-card.svg" alt="19% of the disk freed on a real Mac mini: free space went from 6% to 25%, 86 of 460 GiB, every delete approved by the user" width="760"></p>
+
 First real run, a 16 GB Mac mini with a 494 GB disk (2026-11-03). Measured with `scripts/measure.sh` and `df -h /`;
 the user ran every command.
 
