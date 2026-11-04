@@ -17,6 +17,11 @@ Sizes vary. Measure each with `du -sh PATH`, one explicit path at a time.
 | Browser caches | `~/Library/Caches/Google`, `Firefox` | `~/.cache/google-chrome` | clear from the browser's settings with the browser closed |
 | apt / dnf caches | n/a | `/var/cache/apt` | needs admin: explain, let the user decide |
 | journal logs | n/a | `/var/log/journal` | needs admin: explain, let the user decide |
+| Electron app caches (Slack, VS Code, Discord, Claude) | `~/Library/Application Support/APP/Cache`, `Code Cache`, `GPUCache` only | `~/.config/APP/Cache` | quit the app first, then Trash those 3 subfolders only, never the app's whole folder |
+| Language caches | `~/.gradle/caches`, `~/.cargo/registry`, `~/go/pkg/mod`, `~/.m2/repository`, `~/Library/Caches/CocoaPods`, `~/Library/Caches/Yarn`, `~/Library/pnpm/store`, `~/.bun/install/cache` | same under `~` or `~/.cache` | the tool's own command: `go clean -modcache`, `pnpm store prune`, `yarn cache clean`, `pod cache clean --all`, `cargo cache -a` if installed; else Trash the cache folder |
+| Xcode extras | `~/Library/Developer/Xcode/iOS DeviceSupport`, `DocumentationCache`, `~/Library/Developer/XCTestDevices` | n/a | Trash versions for iOS releases no longer on any device; Xcode re-downloads on connect |
+| Installer files | `.dmg`, `.pkg`, `.xip` in `~/Downloads`; `Install macOS *.app`; `~/Library/iTunes/iPhone Software Updates/*.ipsw` | `.deb`, `.AppImage` in `~/Downloads` | Trash once the app is installed |
+| Logs and crash reports | `~/Library/Logs`, `~/Library/Logs/DiagnosticReports` | `~/.local/state/*/log` | Trash files older than 30 days |
 
 ## Group B: you decide
 
@@ -28,6 +33,13 @@ Sizes vary. Measure each with `du -sh PATH`, one explicit path at a time.
 | Old app support folders | `~/Library/Application Support/APP` | is the app still installed and used | uninstall the app the official way, then Trash the folder |
 | `node_modules` in old projects | project folders | repo committed and pushed, not opened lately | Trash; `npm install` brings it back |
 | Downloads, Movies | `~/Downloads`, `~/Movies` | last opened date | Trash or external disk |
+| Build output beyond node_modules | `target`, `.build`, `dist`, `.next`, `Pods`, `.venv` in project folders | project untouched 6+ months (`stat` mtime) | Trash; the build or `pip install` brings it back |
+| Old toolchain versions | `~/.rustup/toolchains`, `~/.nvm/versions/node`, `~/.pyenv/versions`, old `/Applications/Xcode-*.app` | which version the projects pin (`.nvmrc`, `rust-toolchain`, `.python-version`) | the version manager's own uninstall (`nvm uninstall`, `rustup toolchain uninstall`, `pyenv uninstall`) |
+| Uninstall leftovers | `~/Library/Containers/BUNDLE_ID`, `Group Containers`, `HTTPStorages`, `WebKit`, `Saved Application State` named by the bundle ID | `mdfind "kMDItemCFBundleIdentifier == 'BUNDLE_ID'"` finds no app | Trash those folders, one path per line |
+| Docker data | `docker system df -v` | which images and volumes running containers use | `docker image rm ID`, `docker volume rm NAME` by exact ID, never `system prune --volumes` |
+
+**Report only, never offered:** Xcode Archives (they hold the dSYMs needed to read crash reports), iOS device backups in
+`~/Library/Application Support/MobileSync/Backup`, Mail Downloads, and Chromium `*.code_sign_clone` folders.
 
 ## What freed the most in a real run
 
