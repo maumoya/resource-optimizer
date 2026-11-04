@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0
+
+- GitHub Action `maumoya/resource-optimizer@v0.3.0`: read-only disk, RAM and load snapshot of the runner, with a
+  `min-free-percent` gate and a summary table. CI self-tests it on a passing and a failing input.
+
 ## 0.2.0
 
 - Covers 9 more targets found by comparing 7 other cleanup tools: Electron app caches, language caches (Gradle,

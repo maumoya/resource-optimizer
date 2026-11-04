@@ -1,0 +1,42 @@
+name: Resource Optimizer disk check
+description: Read-only disk, RAM and load snapshot of the runner; fail the job when free disk drops below a set percent.
+author: Mauricio Alonso Moya Tapia
+branding:
+  icon: hard-drive
+  color: green
+inputs:
+  min-free-percent:
+    description: Fail the step when free disk on the runner is below this percent (0 never fails).
+    default: "0"
+outputs:
+  free-percent:
+    description: Free disk on the volume holding $HOME, in percent.
+    value: ${{ steps.measure.outputs.free-percent }}
+  free-gb:
+    description: Free disk in GB.
+    value: ${{ steps.measure.outputs.free-gb }}
+runs:
+  using: composite
+  steps:
+    - name: Measure (read-only)
+      id: measure
+      shell: bash
+      env:
+        MIN_FREE: ${{ inputs.min-free-percent }}
+        SCRIPTS: ${{ github.action_path }}/skills/resource-optimizer/scripts
+      run: |
+        case "$MIN_FREE" in ''|*[!0-9]*) echo "::error::min-free-percent must be a whole number"; exit 2 ;; esac
+        out="$(bash "$SCRIPTS/measure.sh" before)"
+        echo "$out"
+        val() { awk -F= -v k="$1" '$1 == k {print $2}' <<<"$out"; }
+        total="$(val disk_total_gb)"; free="$(val disk_free_gb)"
+        pct="$(awk -v f="$free" -v t="$total" 'BEGIN { printf "%d", f * 100 / t }')"
+        echo "free-percent=$pct" >> "$GITHUB_OUTPUT"
+        echo "free-gb=$free" >> "$GITHUB_OUTPUT"
+        {
+          echo "### Runner resources"
+          echo "| Free disk | RAM | Swap used | Load (1m) |"
+          echo "|---|---|---|---|"
+          echo "| ${pct}% (${free} of ${total} GB) | $(val ram_gb) GB | $(val swap_used) | $(val load_1m) |"
+        } >> "$GITHUB_STEP_SUMMARY"
+        [ "$pct" -ge "$MIN_FREE" ] || { echo "::error::Free disk ${pct}% is below ${MIN_FREE}%"; exit 1; }

@@ -7,6 +7,8 @@
 - Claude Code: `/plugin marketplace add maumoya/resource-optimizer` then `/plugin install resource-optimizer@resource-optimizer`
 - Any agent: `npx skills add maumoya/resource-optimizer`
 
+- GitHub Action: `uses: maumoya/resource-optimizer@v0.3.0` with `min-free-percent`, read-only runner disk check
+
 ## Files
 
 - [SKILL.md](https://github.com/maumoya/resource-optimizer/blob/main/skills/resource-optimizer/SKILL.md): the skill

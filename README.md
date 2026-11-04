@@ -89,6 +89,19 @@ the user ran every command.
 **100% of deletes approved by the user:** every item was recommended by the skill in a ranked table, the user
 said yes, and every permanent step was the user's own command or password in a macOS dialog. The agent deleted 0 files on its own.
 
+## Check runner disk in CI (GitHub Action)
+
+The same read-only `measure.sh` runs as an Action. It never deletes anything; it fails the job when free disk is
+below your limit and writes a summary table.
+
+```yaml
+- uses: maumoya/resource-optimizer@v0.3.0
+  with:
+    min-free-percent: 10
+```
+
+Outputs: `free-percent`, `free-gb`.
+
 ## How it is tested
 
 `evals/` holds one case per promise, plus the sandbox test above. Run `claude plugin eval . --scaffold --allow-tools Bash`.

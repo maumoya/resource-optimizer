@@ -1,6 +1,6 @@
 {
   "name": "resource-optimizer",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Frees disk space and eases RAM and CPU load on macOS and Linux: measures read-only, ranks what fills the disk with a plain need-it answer, gives you one command per group to run, proves the result before/after. Never deletes on its own.",
   "author": {
     "name": "Mauricio Alonso Moya Tapia",
