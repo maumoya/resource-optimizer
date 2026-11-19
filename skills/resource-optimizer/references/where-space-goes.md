@@ -61,6 +61,25 @@ Then check git in that worktree: unpushed commits (`git -C WORKTREE rev-list @{u
 the remote) and uncommitted files (`git -C WORKTREE status --porcelain`). Report uncommitted files as ⚠️ "stays
 untouched": the command only moves the build folder. Keep the worktree itself (SKILL.md rule 8).
 
+## Local AI models: prove each one is unused
+
+Before offering a model, every check must pass:
+
+- not in the project's model pin or lock file (for example `models/local/ollama.lock.json`);
+- not in the app's live model list (its own status command);
+- no runtime code calls it (search code, leave out tests, evals and docs); a catalog or size-table mention is
+  display only;
+- no LaunchAgent and no open pull request names it;
+- `ollama ps` shows it is not loaded.
+
+Embedding models count as in use when search runs on them. Before the command, show one table:
+`Model | What the app uses it for | Keep or remove`. Valid reasons to remove: a trial that was never adopted, only in
+old eval results or a catalog, or bigger than the machine's memory allows while a smaller pinned model does the job.
+Then one block of `ollama rm NAME` lines the user runs. Model blobs are not APFS clones, so `ollama list` sizes match
+the `df` gain (a real run: 4 models, 24.9 GB listed, free space 55 → 80 GB).
+If the app's own status command crashes during a check, do not block on it: note it, and propose fixing it
+separately.
+
 ## Docker on Colima or Lima: space does not come back by itself
 
 - **The VM disk does not shrink after `docker image rm`.** The VM mounts its data disk without `discard`, so freed
@@ -108,6 +127,11 @@ System Settings › Storage keeps a cached list: quit System Settings and reopen
 Never offer system apps (Safari, Mail) or apps with a running login item or helper.
 
 ## Why "System Data" is huge on macOS
+
+System Data is mostly hidden dot folders and app data, not macOS itself (130 GB in a real run: models 58 GB, an
+app's own data 25 GB, Docker 23 GB, an app VM 15 GB, simulators 8.6 GB). Measure read-only first:
+`du -xsh ~/.ollama ~/.colima ~/.cache ~/.npm ~/Library/Caches ~/Library/Developer "$HOME/Library/Application Support"`,
+then `tmutil listlocalsnapshots /` and `du -sh /private/var/folders`. An app's own data folder is hands off.
 
 | Item | Check (read-only) | Action |
 |---|---|---|

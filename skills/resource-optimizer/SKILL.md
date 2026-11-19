@@ -52,7 +52,8 @@ safely. You measure; the user deletes. Every run ends with a measured before/aft
    `you decide`, with a reason in up to 6 words. Measure every cache first; one at 0 bytes gets no row. Risk: 🔵 regenerates by itself, 🟡 costs time to rebuild or re-download,
    🔴 your data (never offered for deletion, only archive). Caches that are slow or big to rebuild (Playwright browsers,
    an active project's DerivedData, model downloads) are 🟡 and go to group B, not A. Use `references/where-space-goes.md` for the usual suspects and their clean commands.
-   For local AI models, check whether any code or config still names a model before calling it unused.
+   For local AI models, run every check in `references/where-space-goes.md` ("Local AI models") and show the
+   per-model keep-or-remove table before any `ollama rm`.
 4. **Group.** A = regenerable (caches, simulators, build output): safe. B = you decide (models, old projects, big downloads,
    VMs). C = done in an app's own settings. Plus "don't touch" with the reason.
 5. **One group at a time.** Show the group, its size and why it is safe, then one fenced command block. Wait for the user

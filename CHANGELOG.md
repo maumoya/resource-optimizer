@@ -18,6 +18,10 @@
   7+ days untouched, with unpushed and uncommitted work reported; worktrees themselves stay.
 - `du` overcounts on APFS (13.6 GB estimated, 9 GB freed): say "about", trust `df`. Caches already at 0 bytes get no
   step.
+- macOS "System Data": read-only measure of hidden dot folders, app data, snapshots and `/private/var/folders` first.
+- Local AI models: 6 checks before offering one (lock file, live list, runtime code, LaunchAgents, open PRs,
+  `ollama ps`), embedding models count as in use, a per-model keep-or-remove table before `ollama rm`; model sizes
+  match the `df` gain (24.9 GB listed, 55 → 80 GB free). A crashing app status command is noted, not a blocker.
 
 ## 0.3.0
 
