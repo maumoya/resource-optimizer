@@ -43,7 +43,7 @@ Sizes vary. Measure each with `du -sh PATH`, one explicit path at a time.
 
 ## Build output inside git worktrees
 
-Agent worktrees (for example `REPO/.claude/worktrees/NAME/apps/APP/.build` for Swift) can hold most of a disk: in a
+Build folders inside agent git worktrees (for example a Swift `.build` or a `node_modules` in each worktree) can hold most of a disk: in a
 real run 42 of 46 GB. Offer each build folder (🟡, group A) only when it was untouched for 7+ days and every check
 passes, one folder at a time:
 
@@ -65,7 +65,7 @@ untouched": the command only moves the build folder. Keep the worktree itself (S
 
 Before offering a model, every check must pass:
 
-- not in the project's model pin or lock file (for example `models/local/ollama.lock.json`);
+- not in any model pin or lock file the project keeps;
 - not in the app's live model list (its own status command);
 - no runtime code calls it (search code, leave out tests, evals and docs); a catalog or size-table mention is
   display only;
