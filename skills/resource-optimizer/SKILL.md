@@ -31,6 +31,9 @@ safely. You measure; the user deletes. Every run ends with a measured before/aft
 8. **Keep the history.** Never suggest removing agent threads or sessions (active or archived), their git worktrees,
    or merged git branches: they record why things were done. Archive leftovers, don't delete them.
 9. **Still needed but big** (VM disks, models in use): suggest an external disk, never deletion.
+10. **Measure the gain where it lands.** Colima/Lima VM disks need `fstrim` inside the VM before the Mac sees freed
+    Docker space; untagged (`<none>`) images go by ID; an app VM changed in the last 7 days is "yes, in active use"
+    and never offered. Details in `references/where-space-goes.md`.
 
 ## Steps
 

@@ -1,6 +1,6 @@
 {
   "name": "resource-optimizer",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Frees disk space on macOS and Linux without losing anything you need. Measures read-only, ranks what fills the disk with a plain \"need it?\" answer, and hands you one command per group to run yourself. Never deletes on its own. Also eases RAM and CPU load. Freed 21% of a real Mac mini disk (103.8 GB).",
   "author": {
     "name": "Mauricio Alonso Moya Tapia",

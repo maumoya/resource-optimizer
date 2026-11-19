@@ -41,6 +41,17 @@ Sizes vary. Measure each with `du -sh PATH`, one explicit path at a time.
 **Report only, never offered:** Xcode Archives (they hold the dSYMs needed to read crash reports), iOS device backups in
 `~/Library/Application Support/MobileSync/Backup`, Mail Downloads, and Chromium `*.code_sign_clone` folders.
 
+## Docker on Colima or Lima: space does not come back by itself
+
+- **The VM disk does not shrink after `docker image rm`.** The VM mounts its data disk without `discard`, so freed
+  blocks stay inside `~/.colima/_lima/_disks/colima` and `df -h /` on the Mac shows no gain. With the VM running,
+  the user runs `colima ssh -- sudo fstrim -v /mnt/lima-colima` (the `sudo` runs inside the VM, not on the Mac);
+  then re-measure. In a real run this freed 9.5 GiB.
+- **A profile's data disk stays after `colima delete`.** Removing a profile and its data needs
+  `colima delete -f --data PROFILE`, one profile per line. Only offer it for a profile the user does not use.
+- **Images with no tag (`<none>`)** fail with "No such image" when removed by name. Remove them by image ID:
+  `docker images --filter dangling=true` lists the IDs, then `docker image rm ID`, one ID per line.
+
 ## What freed the most in a real run
 
 16 GB Mac mini, 29 → 92 GiB free in four user-run rounds: emptying the Trash (+23 GiB, nothing is freed until then),
@@ -76,12 +87,20 @@ Never offer system apps (Safari, Mail) or apps with a running login item or help
 | Simulator runtimes (often 8 GB each) | `xcrun simctl runtime list -v` (size, last used) | keep the newest one in use; `xcrun simctl runtime delete ID` for the rest |
 | Temp and cache (`/private/var/folders`) | `du -sh "$(getconf DARWIN_USER_TEMP_DIR)"` | a restart clears most of it; never Trash it by hand while apps run |
 | Time Machine local snapshots | `tmutil listlocalsnapshots /` | macOS thins them when space is low |
-| App VM bundles (Claude, Docker) | `du -sh` on the app's support folder | keep while the app is used |
+| App VM bundles (Claude, Docker) | `du -sh` on the app's support folder; `stat -f '%Sm' PATH` for last change | keep while the app is used; see "App VMs in active use" below |
 | Purgeable space | `diskutil info /` Container Free Space | Settings counts it as used; it frees by itself |
 
 ## Group C: in an app's own settings
 
 Messages and WhatsApp attachments, iCloud "Optimize Mac Storage", photo libraries, mail downloads, a pending OS update.
+
+### App VMs in active use
+
+Before offering an app VM bundle (for example the Claude app's
+`~/Library/Application Support/Claude/vm_bundles/claudevm.bundle`), check its last change with
+`stat -f '%Sm' PATH` (macOS) or `stat -c '%y' PATH` (Linux). Changed in the last 7 days: the row reads
+"Need it? yes, in active use" and is not offered at all. In a real run the Claude app's VM was offered although it
+had been used that same day.
 
 ## Extra read-only checks
 

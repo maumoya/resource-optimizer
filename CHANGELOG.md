@@ -5,6 +5,15 @@
 - README: latest real-machine numbers (21% of the disk freed, 103.8 GB, free space 4% → 25%) and an animated
   before/after card; header and cards updated to match.
 
+## 0.3.1
+
+- Colima/Lima: Docker space freed inside the VM only reaches the Mac after
+  `colima ssh -- sudo fstrim -v /mnt/lima-colima` (9.5 GiB in a real run); `colima delete -f --data PROFILE`
+  removes a profile's data disk.
+- Untagged (`<none>`) Docker images are removed by image ID, not by name.
+- App VM bundles (e.g. the Claude app's `claudevm.bundle`) changed in the last 7 days are marked "yes, in active use"
+  and never offered.
+
 ## 0.3.0
 
 - GitHub Action `maumoya/resource-optimizer@v0.3.0`: read-only disk, RAM and load snapshot of the runner, with a
