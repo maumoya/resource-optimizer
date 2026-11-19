@@ -41,6 +41,26 @@ Sizes vary. Measure each with `du -sh PATH`, one explicit path at a time.
 **Report only, never offered:** Xcode Archives (they hold the dSYMs needed to read crash reports), iOS device backups in
 `~/Library/Application Support/MobileSync/Backup`, Mail Downloads, and Chromium `*.code_sign_clone` folders.
 
+## Build output inside git worktrees
+
+Agent worktrees (for example `REPO/.claude/worktrees/NAME/apps/APP/.build` for Swift) can hold most of a disk: in a
+real run 42 of 46 GB. Offer each build folder (🟡, group A) only when it was untouched for 7+ days and every check
+passes, one folder at a time:
+
+| Check | Command (read-only) | Pass when |
+|---|---|---|
+| Not tracked | `git -C WORKTREE ls-files DIR` | prints nothing |
+| Ignored | `git -C WORKTREE check-ignore -q DIR` | exit 0 |
+| Marked as cache | `ls DIR/CACHEDIR.TAG` | file exists |
+| Not open | `lsof +D DIR` | prints nothing |
+| No process uses the worktree | `pgrep -fl WORKTREE` | prints nothing |
+| Nothing points at it | search `~/Library/LaunchAgents` and the repo's build scripts for the path | no match |
+| Running app not built from it | the app's executable path (`ps -o comm= -p PID`) | outside DIR |
+
+Then check git in that worktree: unpushed commits (`git -C WORKTREE rev-list @{u}..HEAD`, and the branch exists on
+the remote) and uncommitted files (`git -C WORKTREE status --porcelain`). Report uncommitted files as ⚠️ "stays
+untouched": the command only moves the build folder. Keep the worktree itself (SKILL.md rule 8).
+
 ## Docker on Colima or Lima: space does not come back by itself
 
 - **The VM disk does not shrink after `docker image rm`.** The VM mounts its data disk without `discard`, so freed
@@ -51,6 +71,13 @@ Sizes vary. Measure each with `du -sh PATH`, one explicit path at a time.
   `colima delete -f --data PROFILE`, one profile per line. Only offer it for a profile the user does not use.
 - **Images with no tag (`<none>`)** fail with "No such image" when removed by name. Remove them by image ID:
   `docker images --filter dangling=true` lists the IDs, then `docker image rm ID`, one ID per line.
+
+## Measure before you offer
+
+- **`du` overcounts on APFS.** In a real run `du` said 13.6 GB and the Trash gave back 9 GB (clones and hard
+  links). Say "about" before the command and report only the `df -h /` gain after it.
+- **An empty cache gets no step.** Measure each cache first (`pip cache info`, `du -sh PATH`); in a real run the pip
+  cache was already 0 bytes. Drop a cache at 0 bytes from the table instead of keeping a purge step pending.
 
 ## What freed the most in a real run
 

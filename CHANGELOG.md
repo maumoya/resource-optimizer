@@ -13,6 +13,11 @@
 - Untagged (`<none>`) Docker images are removed by image ID, not by name.
 - App VM bundles (e.g. the Claude app's `claudevm.bundle`) changed in the last 7 days are marked "yes, in active use"
   and never offered.
+- Build output inside git worktrees (e.g. Swift `.build`, 42 of 46 GB in a real run) is offered only after 7 checks
+  (untracked, ignored, `CACHEDIR.TAG`, not open, no process, nothing points at it, running app not built from it),
+  7+ days untouched, with unpushed and uncommitted work reported; worktrees themselves stay.
+- `du` overcounts on APFS (13.6 GB estimated, 9 GB freed): say "about", trust `df`. Caches already at 0 bytes get no
+  step.
 
 ## 0.3.0
 
